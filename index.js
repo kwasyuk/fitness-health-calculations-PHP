@@ -6,7 +6,7 @@
  * @param {Number} height
  * @param {Number} weight 
  */
-module.exports.bmrCalculate = function bmrCalculate(gender, age, height, weight) {
+module.exports.bmr = function bmr(gender, age, height, weight) {
 
     let genderVariable;
 
@@ -36,7 +36,7 @@ module.exports.bmrCalculate = function bmrCalculate(gender, age, height, weight)
  * @param {Number} weight
  * @param {String} activity_level 
  */
-module.exports.tdeeCalculate = function tdeeCalculate(gender, age, height, weight, activity_level) {
+module.exports.tdee = function tdee(gender, age, height, weight, activity_level) {
 
     let activityMap = {
         'sedentary': 1.2,
@@ -50,7 +50,7 @@ module.exports.tdeeCalculate = function tdeeCalculate(gender, age, height, weigh
         throw new Error('Value for activity level is not valid')
     }
 
-    let tdee = this.bmrCalculate(gender, age, height, weight) * activityMap[activity_level];
+    let tdee = this.bmr(gender, age, height, weight) * activityMap[activity_level];
 
     /**Return tdee with two decimal places */
     return tdee = +tdee.toFixed(2);
@@ -88,7 +88,7 @@ module.exports.caloricNeeds = function caloricNeeds(gender, age, height, weight,
         throw new Error('Value for approach is not valid')
     }
 
-    let tdee = this.tdeeCalculate(gender, age, height, weight, activity_level);
+    let tdee = this.tdee(gender, age, height, weight, activity_level);
 
     let calNeeds = tdee + (goalMap[goal] * approachMap[approach]);
 
