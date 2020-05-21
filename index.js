@@ -8,10 +8,18 @@
  */
 module.exports.bmr = function bmr(gender, age, height, weight) {
 
+    let heightConverted = height;
+    let weightConverted = weight;
     let genderVariable;
 
     if (typeof age !== 'number' || typeof height !== 'number' || typeof weight !== 'number') {
         throw new Error('Age, height and weight must be a number');
+    }
+
+    /**Convert IMPERIAL UNITS */
+    if(height < 10){
+        heightConverted = height*30.48;
+        weightConverted = weight/2.205;
     }
 
     /**Gender check */
@@ -23,7 +31,7 @@ module.exports.bmr = function bmr(gender, age, height, weight) {
         throw new Error('Gender must be either male or female');
     }
 
-    let bmr = 10 * weight + 6.25 * height - 5 * age + genderVariable;
+    let bmr = 10 * weightConverted + 6.25 * heightConverted - 5 * age + genderVariable;
 
     /**Return bmr with two decimal places */
     return bmr = +bmr.toFixed(2);
@@ -56,7 +64,7 @@ module.exports.tdee = function tdee(gender, age, height, weight, activity_level)
     return tdee = +tdee.toFixed(2);
 }
 
-/**Calculates the total daily energy expenditure.
+/**Calculates the total daily caloric needs.
  * @param {String} gender
  * @param {Number} age
  * @param {Number} height

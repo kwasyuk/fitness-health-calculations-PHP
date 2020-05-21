@@ -12,7 +12,15 @@ npm install fitness-health-calculations
 
 # Usage
 
-**Please note that the weight and height values must be either POUNDS and FEETS, or KILOGRAMS and CENTIMETERS**
+*Please note that the weight and height values must be either POUNDS and FEETS, or KILOGRAMS and CENTIMETERS*
+
+### What can you calculate
+
+In version 1.0.1 you are able to calculate:
+
+* The basal metabolic rate -  number of calories required to keep your body functioning at rest.
+* The total daily energy expenditure - an estimation of how many calories you burn per day when exercise is taken into account.
+* Total daily caloric needs based on weight goal
 
 ### EXAMPLE 1 - Basal metabolic rate 
 
@@ -43,11 +51,15 @@ let totalCaloricNeeds = calculate.caloricNeeds('male', 22, 6.3, 209, 'high', 'ga
 ```
 Fitness and Health Calculations
 ```
+Calculates the basal metabolic rate - returns number of calories
+
 * `bmr(gender, age, height, weight)`
     * `gender` - [REQUIRED] - your gender.
     * `age` - [REQUIRED] - your age.
     * `height` - [REQUIRED] - your height, can be either in **FEETS** or **CENTIMETERS**
     * `weight` - [REQUIRED] - your weight, can be either in **POUNDS** or **KILOGRAMS**
+
+Calculates the total daily energy expenditure - returns number of calories
 
 * `tdee(gender, age, height, weight, activity_level)`
     * `gender` - [REQUIRED] - your gender.
@@ -60,6 +72,8 @@ Fitness and Health Calculations
         - **moderate** - moderate exercise 3-5 days/week
         - **high** - heavy exercise 6-7 days/week
         - **extreme** - very heavy exercise, hard labor job, training 2x/day
+
+Calculates the total daily caloric needs based on weight goal - returns number of calories
 
 * `caloricNeeds(gender, age, height, weight, activity_level, goal, approach)`
     * `gender` - [REQUIRED] - your gender.
