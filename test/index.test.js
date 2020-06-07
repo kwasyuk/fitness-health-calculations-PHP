@@ -64,6 +64,26 @@ describe('Fitness Health Calculations', () => {
         });
 
     });
+
+    describe('idealBodyWeight()', () => {
+        
+        it('Should get the ideal body weight for male. METRIC UNITS', () => {
+            assert.equal(calculate.idealBodyWeight(195, 'male'), 88.57)
+        });
+        
+        it('Should get the ideal body weight for male. IMPERIAL UNITS', () => {
+            assert.equal(calculate.idealBodyWeight(6.2, 'male', 'imperial'), 182.86)
+        });
+
+        it('Should get the ideal body weight for female. METRIC UNITS', () => {
+            assert.equal(calculate.idealBodyWeight(175, 'female'), 65.46)
+        });
+
+        it('Should get the result as a NUMBER.', () => {
+            assert.typeOf(calculate.idealBodyWeight(175, 'female'), 'number')
+        });
+    
+    });
     
 });
 

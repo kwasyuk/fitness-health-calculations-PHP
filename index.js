@@ -103,3 +103,41 @@ module.exports.caloricNeeds = function caloricNeeds(gender, age, height, weight,
     /**Return caloric needs with two decimal places */
     return calNeeds = +calNeeds.toFixed(2);
 }
+
+/**Calculates the ideal weight.
+ * @param {Number} height
+ */
+module.exports.idealBodyWeight = function idealBodyWeight(height, gender, units = 'metric'){
+    
+    if(typeof height !== 'number'){
+        throw new Error('Height must be a number')
+    }
+    
+    let genderFactor = 50;
+    let heightVal = height;
+
+    /**Gender check */
+    if (gender === 'female') {
+        genderFactor = genderFactor - 5;
+    } else if (gender === 'male') {
+        
+    } else {
+        throw new Error('Gender must be either male or female');
+    }
+
+    if(height > 10){
+        heightVal = height / 30.48;
+    }
+
+    let result = genderFactor + (((heightVal - 5) * 12) * 2.3);
+    result = +result.toFixed(2);
+
+    if(units === 'metric'){
+        return result;
+    }else if(units === 'imperial'){
+        let imperialResult = result * 2.20;
+        return +imperialResult.toFixed(2);
+    }else{
+        return new Error('Units parameter can only be metric or imperial');
+    }
+}
