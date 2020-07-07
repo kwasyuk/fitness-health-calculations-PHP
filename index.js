@@ -106,6 +106,8 @@ module.exports.caloricNeeds = function caloricNeeds(gender, age, height, weight,
 
 /**Calculates the ideal weight.
  * @param {Number} height
+ * @param {String} gender
+ * @param {String} [units = 'metric']
  */
 module.exports.idealBodyWeight = function idealBodyWeight(height, gender, units = 'metric'){
     

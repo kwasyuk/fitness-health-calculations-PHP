@@ -16,11 +16,12 @@ npm install fitness-health-calculations
 
 ### What can you calculate
 
-In version 1.0.1 you are able to calculate:
+In version 1.0.2 you are able to calculate:
 
 * The basal metabolic rate -  number of calories required to keep your body functioning at rest.
 * The total daily energy expenditure - an estimation of how many calories you burn per day when exercise is taken into account.
-* Total daily caloric needs based on weight goal
+* Total daily caloric needs based on weight goal.
+* Ideal weight.
 
 ### EXAMPLE 1 - Basal metabolic rate 
 
@@ -95,6 +96,13 @@ Calculates the total daily caloric needs based on weight goal - returns number o
         - **normal** - normal weightloss/gain, this is the default and recommended value
         - **agressive** - agressive weightloss/gain
         - **very agressive** - very agressive weightloss/gain, only recommended for professional athletes
+
+Calculates the ideal weight - returns the ideal weight.
+
+* `idealBodyWeight(height, gender, units)`
+    * `height` - [REQUIRED] - your height, can be either in **FEETS** or **CENTIMETERS**, *depends on the third argument*. 
+    * `gender` - [REQUIRED] - your gender.
+    * `units` - [OPTIONAL] -  can be either metric or imperial (default - metric).    
 
 ## Authors
 
